@@ -14,12 +14,12 @@ logging.basicConfig(
 )
 
 # Ваши токены
-TELEGRAM_TOKEN = (environ['TELEGRAM_TOKEN'])
+TELEGRAM_TOKEN = environ["TELEGRAM_TOKEN"]
 bot = Bot(token=TELEGRAM_TOKEN)
 dp = Dispatcher(bot, storage=MemoryStorage())  # Добавляем хранилище состояний
 VERSION = "5.199"
 kol_post = 200
-TOKEN_USER = (environ['TOKEN_USER'])
+TOKEN_USER = environ["TOKEN_USER"]
 
 # Словарь с темами для выбора
 TOPICS = {
@@ -122,16 +122,16 @@ async def vkpost(community_id, current_topic):
         text = post.get("text", "")
         if current_topic == "Хакатон":
             if any(
-                    re.search(rf"\b{current_topic}\b", word, re.IGNORECASE)
-                    for word in re.split(r"\W+", text)
+                re.search(rf"\b{current_topic}\b", word, re.IGNORECASE)
+                for word in re.split(r"\W+", text)
             ):
                 links_with_olimp.append(
                     f"https://vk.com/wall{post['owner_id']}_{post['id']}"
                 )
         else:
             if any(
-                    re.search(rf"\b{current_topic}\b", word, re.IGNORECASE)
-                    for word in re.split(r"\W+", text)
+                re.search(rf"\b{current_topic}\b", word, re.IGNORECASE)
+                for word in re.split(r"\W+", text)
             ):
                 if "олимпиад" in text.lower():
                     links_with_olimp.append(
