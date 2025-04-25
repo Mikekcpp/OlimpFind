@@ -11,7 +11,7 @@ index = open("static/index.html").read()
 # Функция для запуска бота
 def run_bot():
     loop = asyncio.new_event_loop()  # Создаем новый цикл событий
-    asyncio.set_event_loop(loop)  # Устанавливаем его как текущий для потока
+    asyncio.set_event_loop(loop)
     executor.start_polling(dp, skip_updates=True)  # Запускаем бота
 
 
@@ -29,4 +29,4 @@ def root():
 
 
 if __name__ == "__main__":
-    app.run(debug=False)  # Отключаем debug, чтобы избежать перезапуска
+    app.run(debug=False)
