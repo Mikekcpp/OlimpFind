@@ -21,7 +21,6 @@ bot_thread.daemon = True  # Поток завершится, если основ
 bot_thread.start()
 
 
-# Process index page
 @app.route("/")
 def root():
     print("index!")
